@@ -699,4 +699,7 @@
   .newsletter-form {
     flex-direction: column;
   }
+  .step-node span {
+    display: none;
+  }
 }
