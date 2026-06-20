@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Bulk Quote - SafeVista RFQ</title>
+  <meta name="description" content="Request a bulk price quote for high-volume safety sign orders, facility branding, or custom SOP posters with corporate logos.">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Sticky Site Header -->
+  <site-header></site-header>
+
+  <!-- Breadcrumb Navigation -->
+  <div style="background-color: var(--bg-light); border-bottom: 1px solid var(--border-color); padding: 0.75rem 0;">
+    <div class="container" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">
+      <a href="index.html" style="color: var(--primary-color);">Home</a> &gt; 
+      <span style="color: var(--text-dark); font-weight: 600;">Corporate Quote Request</span>
+    </div>
+  </div>
+
+  <main class="container" style="min-height: 70vh; padding: 3rem 0;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      
+      <div class="section-title-wrap" style="text-align: left; margin-bottom: 2rem;">
+        <span class="section-tag">Corporate Volume Pricing</span>
+        <h1 class="section-title" style="font-size: 2.2rem; margin-bottom: 0.5rem;">Request a Custom Quote</h1>
+        <p>Are you looking to refit a complete factory, order 50+ signs, or customize posters with your brand logo? Complete this RFQ sheet, and our safety consultants will respond with a PDF proposal within 4 business hours.</p>
+      </div>
+
+      <!-- Quote RFQ Card Form -->
+      <div class="cart-table-card">
+        <form id="rfq-quote-form" novalidate>
+          
+          <!-- Login Prompt for RFQ page -->
+          <div id="quote-login-prompt" style="background-color: var(--primary-light); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid rgba(15, 76, 129, 0.2); margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; min-width: 250px; flex: 1;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <span>Have a corporate profile? <strong>Log in</strong> to auto-fill this request.</span>
+            </div>
+            <button type="button" class="btn btn-outline" id="quote-login-btn" style="padding: 0.4rem 1rem; font-size: 0.75rem; text-transform: uppercase;">Log In</button>
+          </div>
+
+          <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--primary-color); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">1. Corporate Contact Details</h3>
+
+          <div class="grid-cols-2">
+            <div class="form-group">
+              <label for="q-name">Contact Full Name *</label>
+              <input type="text" id="q-name" required class="form-control" placeholder="Vikram Malhotra">
+            </div>
+            <div class="form-group">
+              <label for="q-email">Corporate Email *</label>
+              <input type="email" id="q-email" required class="form-control" placeholder="v.malhotra@steelworks.com">
+            </div>
+          </div>
+
+          <div class="grid-cols-2">
+            <div class="form-group">
+              <label for="q-phone">Direct Phone Number *</label>
+              <input type="tel" id="q-phone" required class="form-control" placeholder="+91 98765 43210">
+            </div>
+            <div class="form-group">
+              <label for="q-company">Company / Organization *</label>
+              <input type="text" id="q-company" required class="form-control" placeholder="Malhotra Steel & Forgings Ltd.">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="q-gst">GST Identification Number (GSTIN)</label>
+            <input type="text" id="q-gst" class="form-control" placeholder="27AAAAA1111A1Z1" maxlength="15" style="text-transform: uppercase;">
+          </div>
+
+          <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--primary-color); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 2.5rem; margin-bottom: 1.5rem;">2. Project Sizing & Requirements</h3>
+
+          <div class="grid-cols-2">
+            <!-- Estimated Quantity -->
+            <div class="form-group">
+              <label for="q-qty">Estimated Total Quantity *</label>
+              <select id="q-qty" class="form-control" required style="cursor: pointer; background-color: white;">
+                <option value="">-- Select volume range --</option>
+                <option value="50-100">50 - 100 Posters / Signs</option>
+                <option value="101-250">101 - 250 Posters / Signs</option>
+                <option value="251-500">251 - 500 Posters / Signs</option>
+                <option value="500+">500+ Posters / Signs (Enterprise Pricing)</option>
+              </select>
+            </div>
+            
+            <!-- Branding custom logo -->
+            <div class="form-group">
+              <label for="q-brand">Custom Corporate Branding *</label>
+              <select id="q-brand" class="form-control" required style="cursor: pointer; background-color: white;">
+                <option value="no">Standard SafeVista Layouts (No custom logos)</option>
+                <option value="logo">Add Company Logo to all posters</option>
+                <option value="full-custom">Custom color codes & full rebranding template</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Sizes Checklist -->
+          <div class="form-group" style="margin-top: 1rem;">
+            <label style="margin-bottom: 0.75rem;">Required Poster Sizes (Select all that apply) *</label>
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+              <label class="filter-checkbox-label"><input type="checkbox" name="q-size" value="A3"> A3 Size (12"x18")</label>
+              <label class="filter-checkbox-label"><input type="checkbox" name="q-size" value="A2"> A2 Size (18"x24")</label>
+              <label class="filter-checkbox-label"><input type="checkbox" name="q-size" value="A1"> A1 Size (24"x36")</label>
+              <label class="filter-checkbox-label"><input type="checkbox" name="q-size" value="custom"> Custom Sizes (Specify below)</label>
+            </div>
+          </div>
+
+          <!-- Materials Checklist -->
+          <div class="form-group" style="margin-top: 1.5rem;">
+            <label style="margin-bottom: 0.75rem;">Required Materials (Select all that apply) *</label>
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+              <label class="filter-checkbox-label"><input type="checkbox" name="q-mat" value="gloss"> Gloss Paper Sheet</label>
+              <label class="filter-checkbox-label"><input type="checkbox" name="q-mat" value="lam"> Laminated Protective Board</label>
+              <label class="filter-checkbox-label"><input type="checkbox" name="q-mat" value="vinyl"> Self-Adhesive Sticker</label>
+              <label class="filter-checkbox-label"><input type="checkbox" name="q-mat" value="alum"> ACP Aluminum Plate</label>
+              <label class="filter-checkbox-label"><input type="checkbox" name="q-mat" value="glow"> Glow-in-the-Dark Photoluminescent</label>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 1.5rem;">
+            <label for="q-desc">Project Scope or Special Instructions</label>
+            <textarea id="q-desc" class="form-control" rows="5" placeholder="Specify categories, text changes, custom sizing requirements, layout revisions, or shipping timelines..." style="resize: vertical;"></textarea>
+          </div>
+
+          <!-- Success Alert Placeholder -->
+          <div id="quote-success-notice" style="display:none; margin: 1.5rem 0; padding: 1.25rem; background-color: #d1fae5; border: 1px solid #10b981; border-radius: var(--radius-sm); color: #065f46; font-weight: 600;">
+            Quote request successfully submitted! Order ID: RFQ-${Math.floor(10000 + Math.random() * 90000)}. Our visual management managers will email your custom proposal layout and price sheet shortly.
+          </div>
+
+          <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
+            <button type="submit" class="btn btn-primary" style="height: 48px; padding: 0 2rem; border-radius: var(--radius-sm);">Submit Quote Request</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Reusable Site Footer Component -->
+  <site-footer></site-footer>
+
+  <!-- Dynamic panel side sheets -->
+  <cart-drawer></cart-drawer>
+  <quick-view-modal></quick-view-modal>
+
+  <!-- Script Modules -->
+  <script type="module" src="js/components/Header.js"></script>
+  <script type="module" src="js/components/Footer.js"></script>
+  <script type="module" src="js/components/ProductCard.js"></script>
+  <script type="module" src="js/components/CartDrawer.js"></script>
+  <script type="module" src="js/components/QuickViewModal.js"></script>
+  <script type="module" src="js/quote.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Safety Posters & Signs - SafeVista Catalog</title>
+  <meta name="description" content="Browse SafeVista's comprehensive catalog of industrial safety signs, high-contrast posters, and custom facility instructions. Filter by material, size, and compliance level.">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Sticky Site Header -->
+  <site-header></site-header>
+
+  <!-- Main Shop Section -->
+  <main class="container">
+    <div class="shop-layout">
+      
+      <!-- Filters Sidebar (Desktop) -->
+      <aside class="filters-sidebar">
+        <!-- Search query display status (mobile search sync) -->
+        <div id="search-status-box" style="display:none; margin-bottom: 1.5rem; background-color: var(--primary-light); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid rgba(15, 76, 129, 0.2); display: flex; align-items: center; justify-content: space-between;">
+          <div style="flex: 1; min-width: 0;">
+            <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight:700; display: block; margin-bottom: 0.15rem;">Active Search</span>
+            <p id="search-status-text" style="font-weight: 700; color: var(--primary-color); font-size: 0.95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0;"></p>
+          </div>
+          <button id="clear-search-btn" aria-label="Clear Search" style="background: none; border: none; color: #ef4444; cursor: pointer; padding: 0.25rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s ease;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+
+        <!-- Filter 1: Categories -->
+        <div class="filter-group">
+          <h4 class="filter-title">Categories</h4>
+          <div class="filter-list" id="category-filter-list">
+            <!-- Loaded dynamically from db.js -->
+          </div>
+        </div>
+
+        <!-- Filter 2: Sizing -->
+        <div class="filter-group">
+          <h4 class="filter-title">Poster Size</h4>
+          <div class="filter-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="size" value="s-a3" checked> A3 Size (12" x 18")
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="size" value="s-a2"> A2 Size (18" x 24")
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="size" value="s-a1"> A1 Size (24" x 36")
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter 3: Materials -->
+        <div class="filter-group">
+          <h4 class="filter-title">Material Type</h4>
+          <div class="filter-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="material" value="m-gloss" checked> Gloss Paper
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="material" value="m-laminate"> Laminated Paper
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="material" value="m-vinyl"> Adhesive Sticker
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="material" value="m-alum"> Aluminum Board
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter 4: Compliance Badges -->
+        <div class="filter-group">
+          <h4 class="filter-title">Compliance</h4>
+          <div class="filter-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="compliance" value="OSHA"> OSHA Compliant
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="compliance" value="ANSI"> ANSI Standards
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="compliance" value="ISO"> ISO Standard Symbols
+            </label>
+          </div>
+        </div>
+
+        <!-- Reset All Button -->
+        <button id="reset-filters-btn" class="btn btn-secondary" style="width: 100%; font-size: 0.8rem; padding: 0.6rem 0; margin-top: 1rem;">Reset Filters</button>
+      </aside>
+
+      <!-- Products Listing Area -->
+      <section>
+        <!-- Active Search Banner -->
+        <div id="search-banner" style="display: none; background-color: var(--primary-light); padding: 1rem 1.5rem; border-radius: var(--radius-md); border: 1px solid rgba(15, 76, 129, 0.2); align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+          <div>
+            <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 0.15rem;">Active Search Query</span>
+            <h2 id="search-banner-text" style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--primary-color); margin: 0;"></h2>
+          </div>
+          <button id="search-banner-close-btn" aria-label="Clear Search" style="background: none; border: none; color: #ef4444; cursor: pointer; padding: 0.25rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s ease;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+
+        <div class="catalog-header">
+          <div style="font-family: var(--font-display); font-weight: 700; color: var(--text-dark);">
+            <span id="product-count-display">0</span> Posters Available
+          </div>
+          <div>
+            <select class="sort-selector" id="sort-selector-dropdown">
+              <option value="popularity">Sort By: Popularity</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="title-asc">Alphabetical: A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Active Filter Chips -->
+        <div id="active-chips-wrap" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <!-- Generated dynamically -->
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="grid-cols-3" id="shop-catalog-grid">
+          <!-- Populated by shop.js -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-catalog-state" style="display: none; text-align: center; padding: 5rem 0; color: var(--text-muted);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1.5rem;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; color: var(--text-dark); margin-bottom: 0.5rem;">No Posters Match Your Filter</h3>
+          <p>Try resetting some parameters or clearance tags in the sidebar filters.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Reusable Site Footer Component -->
+  <site-footer></site-footer>
+
+  <!-- Side panels -->
+  <cart-drawer></cart-drawer>
+  <quick-view-modal></quick-view-modal>
+
+  <!-- Module Script imports -->
+  <script type="module" src="js/components/Header.js"></script>
+  <script type="module" src="js/components/Footer.js"></script>
+  <script type="module" src="js/components/ProductCard.js"></script>
+  <script type="module" src="js/components/CartDrawer.js"></script>
+  <script type="module" src="js/components/QuickViewModal.js"></script>
+  <script type="module" src="js/shop.js"></script>
+</body>
+</html>

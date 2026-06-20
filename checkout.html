@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Checkout - SafeVista</title>
+  <meta name="description" content="Securely complete your SafeVista order. Enter billing address, GST registration numbers, and credit details to generate invoices.">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Sticky Site Header -->
+  <site-header></site-header>
+
+  <main class="container" style="min-height: 70vh; padding-top: 2rem; padding-bottom: 4rem;">
+    
+    <!-- Step Node Header -->
+    <div class="checkout-steps">
+      <div class="step-node active" id="step-node-1">
+        <div class="step-circle">1</div>
+        <span>Contact & Business</span>
+      </div>
+      <div class="step-node" id="step-node-2">
+        <div class="step-circle">2</div>
+        <span>Delivery Details</span>
+      </div>
+      <div class="step-node" id="step-node-3">
+        <div class="step-circle">3</div>
+        <span>Secure Payment</span>
+      </div>
+      <div class="step-node" id="step-node-4">
+        <div class="step-circle">4</div>
+        <span>Confirmation</span>
+      </div>
+    </div>
+
+    <!-- Active checkout content -->
+    <div id="checkout-form-layout" class="checkout-form-container">
+      
+      <!-- Left side: Form steps -->
+      <section class="cart-table-card">
+        <form id="checkout-multistep-form" novalidate>
+          
+          <!-- STEP 1 PANEL: ACCOUNT & GST -->
+          <div class="checkout-step-panel" id="panel-step-1">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--primary-color);">Business & Contact Details</h2>
+            
+            <!-- Login Prompt for corporate account holders -->
+            <div id="checkout-login-prompt" style="background-color: var(--primary-light); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid rgba(15, 76, 129, 0.2); margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem; min-width: 250px; flex: 1;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Already have a corporate account? <strong>Log in</strong> to auto-populate your details.</span>
+              </div>
+              <button type="button" class="btn btn-outline" id="checkout-login-btn" style="padding: 0.4rem 1rem; font-size: 0.75rem; text-transform: uppercase;">Log In</button>
+            </div>
+            
+            <div class="form-group">
+              <label for="c-email">Corporate Email Address *</label>
+              <input type="email" id="c-email" required class="form-control" placeholder="safety.manager@company.com">
+            </div>
+
+            <div class="form-group">
+              <label for="c-phone">Contact Phone Number *</label>
+              <input type="tel" id="c-phone" required class="form-control" placeholder="+91 98765 43210">
+            </div>
+
+            <div class="form-group">
+              <label for="c-company">Company Name (Optional)</label>
+              <input type="text" id="c-company" class="form-control" placeholder="Acme Manufacturing India Ltd.">
+            </div>
+
+            <div class="form-group">
+              <label for="c-gstin">GST Identification Number (GSTIN) *</label>
+              <input type="text" id="c-gstin" class="form-control" placeholder="27AAAAA1111A1Z1 (Required for tax invoice claims)" maxlength="15" style="text-transform: uppercase;">
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Enter a valid 15-character GSTIN to claim corporate input tax credits.</span>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
+              <button type="button" class="btn btn-primary" id="btn-next-1">Next: Shipping Address</button>
+            </div>
+          </div>
+
+          <!-- STEP 2 PANEL: SHIPPING -->
+          <div class="checkout-step-panel" id="panel-step-2" style="display: none;">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--primary-color);">Shipping Delivery Address</h2>
+
+            <div class="grid-cols-2">
+              <div class="form-group">
+                <label for="s-fname">First Name *</label>
+                <input type="text" id="s-fname" required class="form-control" placeholder="Amit">
+              </div>
+              <div class="form-group">
+                <label for="s-lname">Last Name *</label>
+                <input type="text" id="s-lname" required class="form-control" placeholder="Sharma">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="s-address">Street Address *</label>
+              <input type="text" id="s-address" required class="form-control" placeholder="Plot No. 45, Phase III, Industrial Area">
+            </div>
+
+            <div class="grid-cols-3">
+              <div class="form-group">
+                <label for="s-city">City *</label>
+                <input type="text" id="s-city" required class="form-control" placeholder="Pune">
+              </div>
+              <div class="form-group">
+                <label for="s-state">State *</label>
+                <input type="text" id="s-state" required class="form-control" placeholder="Maharashtra">
+              </div>
+              <div class="form-group">
+                <label for="s-zip">ZIP / Postal Code *</label>
+                <input type="text" id="s-zip" required class="form-control" placeholder="411001" maxlength="6">
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+              <button type="button" class="btn btn-secondary" id="btn-back-2">Back</button>
+              <button type="button" class="btn btn-primary" id="btn-next-2">Next: Payment Details</button>
+            </div>
+          </div>
+
+          <!-- STEP 3 PANEL: PAYMENT -->
+          <div class="checkout-step-panel" id="panel-step-3" style="display: none;">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--primary-color);">Secure Payment</h2>
+            
+            <div style="background-color: var(--bg-light); border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-medium); display: flex; gap: 0.5rem; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <span>This is a simulated secure check-out portal. No actual funds will be transferred.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="p-cardholder">Cardholder Name *</label>
+              <input type="text" id="p-cardholder" required class="form-control" placeholder="AMIT SHARMA">
+            </div>
+
+            <div class="form-group">
+              <label for="p-cardnumber">Credit/Debit Card Number *</label>
+              <input type="text" id="p-cardnumber" required class="form-control" placeholder="4111 2222 3333 4444" maxlength="19">
+            </div>
+
+            <div class="grid-cols-2">
+              <div class="form-group">
+                <label for="p-expiry">Expiry Date *</label>
+                <input type="text" id="p-expiry" required class="form-control" placeholder="MM/YY" maxlength="5">
+              </div>
+              <div class="form-group">
+                <label for="p-cvv">CVV Code *</label>
+                <input type="password" id="p-cvv" required class="form-control" placeholder="123" maxlength="3">
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+              <button type="button" class="btn btn-secondary" id="btn-back-3">Back</button>
+              <button type="submit" class="btn btn-accent" id="btn-submit">Submit Secure Order</button>
+            </div>
+          </div>
+
+        </form>
+      </section>
+
+      <!-- Right side: Compact review of products -->
+      <aside class="summary-card">
+        <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">Items In Order</h3>
+        
+        <!-- Cart list container -->
+        <div id="checkout-items-list" style="display: flex; flex-direction: column; gap: 1rem; max-height: 250px; overflow-y: auto; margin-bottom: 1.5rem; padding-right: 0.5rem;">
+          <!-- Loaded dynamically -->
+        </div>
+
+        <div class="cart-drawer-summary" style="border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+          <div class="cart-summary-row" style="margin-bottom: 0.5rem;">
+            <span>Items Subtotal:</span>
+            <span id="c-subtotal">₹0.00</span>
+          </div>
+          <div class="cart-summary-row" id="c-discount-row" style="display: none; color: var(--accent-color); font-weight: 700; margin-bottom: 0.5rem;">
+            <span id="c-discount-label">Bulk Savings (0%):</span>
+            <span id="c-discount-amount">-₹0.00</span>
+          </div>
+          <div class="cart-summary-row" style="margin-bottom: 0.5rem;">
+            <span>Delivery Shipping:</span>
+            <span id="c-shipping">FREE</span>
+          </div>
+          <div class="cart-summary-row" style="margin-bottom: 0.5rem;">
+            <span>GST (18% Corporate Tax):</span>
+            <span id="c-gst">₹0.00</span>
+          </div>
+          <div class="cart-summary-row total" style="margin-top: 1rem; padding-top: 1rem;">
+            <span>Total Cost:</span>
+            <span id="c-total" style="font-size: 1.25rem;">₹0.00</span>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- STEP 4 PANEL: DYNAMIC RECEIPT / SUCCESS (Full width) -->
+    <div id="panel-step-4" class="cart-table-card" style="display: none; max-width: 700px; margin: 0 auto; padding: 3rem; text-align: center;">
+      <!-- Success Icon -->
+      <div class="flex-center" style="width: 72px; height: 72px; background-color: #d1fae5; color: #10b981; border-radius: 50%; margin: 0 auto 1.5rem auto;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+
+      <h1 style="font-family: var(--font-display); font-weight: 800; font-size: 2.2rem; color: #065f46; margin-bottom: 0.5rem;">Order Confirmed!</h1>
+      <p style="color: var(--text-medium); margin-bottom: 2rem;">Your safety poster project deployment order has been scheduled for packaging.</p>
+
+      <div style="background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; text-align: left; margin-bottom: 2.5rem;">
+        <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: 1rem; color: var(--text-dark); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Tax Invoice Details</h3>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.85rem; color: var(--text-medium);">
+          <div>Order Reference: <strong id="rec-order-id" style="color: var(--text-dark);">SV-109283</strong></div>
+          <div>Invoice Date: <strong id="rec-date" style="color: var(--text-dark);">2026-06-20</strong></div>
+          <div>Corporate GSTIN: <strong id="rec-gst" style="color: var(--text-dark);">-</strong></div>
+          <div>Company Name: <strong id="rec-company" style="color: var(--text-dark);">-</strong></div>
+          <div>Delivery Contact: <strong id="rec-phone" style="color: var(--text-dark);">-</strong></div>
+          <div>Shipping Carrier: <strong style="color: var(--text-dark);">SafeVista Express (DHL Partner)</strong></div>
+        </div>
+
+        <div style="margin-top: 1.25rem; font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between;">
+          <span style="font-weight: 700; color: var(--text-dark);">Total Invoiced Amount (GST Incl.):</span>
+          <span style="font-weight: 800; color: var(--primary-color);" id="rec-amount">₹0.00</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <button onclick="window.print()" class="btn btn-outline" style="border-radius: var(--radius-sm);">Print Tax Receipt</button>
+        <a href="shop.html" class="btn btn-primary" style="border-radius: var(--radius-sm);">Back to Shop</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Reusable Site Footer Component -->
+  <site-footer></site-footer>
+
+  <!-- Script Modules -->
+  <script type="module" src="js/components/Header.js"></script>
+  <script type="module" src="js/components/Footer.js"></script>
+  <script type="module" src="js/components/ProductCard.js"></script>
+  <script type="module" src="js/components/CartDrawer.js"></script>
+  <script type="module" src="js/components/QuickViewModal.js"></script>
+  <script type="module" src="js/checkout.js"></script>
+</body>
+</html>

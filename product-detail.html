@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configure Safety Poster - SafeVista Detail</title>
+  <meta name="description" content="Configure size, lamination, and mounting options for your safety posters. Get instant bulk pricing discounts for large corporate orders.">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Sticky Site Header -->
+  <site-header></site-header>
+
+  <!-- Breadcrumb Navigation -->
+  <div style="background-color: var(--bg-light); border-bottom: 1px solid var(--border-color); padding: 0.75rem 0;">
+    <div class="container" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">
+      <a href="index.html" style="color: var(--primary-color);">Home</a> &gt; 
+      <a href="shop.html" style="color: var(--primary-color);">Shop Catalog</a> &gt; 
+      <span id="breadcrumb-category" style="color: var(--primary-color);">Category</span> &gt; 
+      <span id="breadcrumb-title" style="color: var(--text-dark); font-weight: 600;">Product Title</span>
+    </div>
+  </div>
+
+  <!-- Main Product Detail Section -->
+  <main class="container" style="min-height: 70vh;">
+    <div class="detail-layout">
+      
+      <!-- Left Column: Image/SVG Display -->
+      <section>
+        <div class="quick-view-gallery">
+          <div class="quick-view-main-img" id="detail-main-img-container" style="box-shadow: var(--shadow-md);">
+            <!-- Dynamic Vector SVG rendered here -->
+          </div>
+          <!-- Thumbnail Mock Variants -->
+          <div class="gallery-thumbnails">
+            <button class="thumb-btn active" id="thumb-primary">
+              <!-- Render small SVG primary -->
+            </button>
+            <button class="thumb-btn" id="thumb-blueprint">
+              <!-- Blueprint wireframe preview -->
+            </button>
+            <button class="thumb-btn" id="thumb-mockup">
+              <!-- Mockup overlay -->
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Configurator Panel -->
+      <section class="quick-view-info">
+        <span id="detail-badge-display" class="badge badge-blue" style="align-self: start; margin-bottom: 0.5rem; display: none;"></span>
+        <h1 class="quick-view-title" id="detail-title-display" style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 0.5rem;">Safety Poster Title</h1>
+        
+        <!-- SKU & Compliance status -->
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; display: flex; gap: 1.5rem;">
+          <span>SKU: <strong id="detail-sku-display" style="color: var(--text-dark);">SV-HSP-001</strong></span>
+          <span>Compliance: <strong id="detail-compliance-display" style="color: var(--text-dark);">OSHA 1910</strong></span>
+        </div>
+
+        <!-- Rating Row -->
+        <div class="product-rating" style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none" opacity="0.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <span style="font-weight: 600;" id="detail-rating-text">4.8 (42 customer reviews)</span>
+        </div>
+
+        <div style="background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem;">
+          <!-- Price display -->
+          <div class="quick-view-price" id="detail-price-display" style="margin-bottom: 0.25rem;">₹150.00</div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;" id="detail-unit-price-display">Base Unit Price: ₹150.00</div>
+          
+          <!-- Interactive bulk discount notification -->
+          <div id="detail-savings-notice" style="display: none; background-color: rgba(249,115,22,0.1); border: 1px dashed var(--accent-color); padding: 0.5rem; border-radius: var(--radius-sm); margin-top: 0.75rem; color: var(--accent-color); font-weight: 700; font-size: 0.85rem; text-align: center;">
+            Bulk Pricing Applied: Saved 10%!
+          </div>
+        </div>
+
+        <!-- Sizing Selector -->
+        <div class="variant-group">
+          <span class="variant-label">1. Select Poster Sizing</span>
+          <div class="variant-options" id="detail-size-options">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Material Selector -->
+        <div class="variant-group">
+          <span class="variant-label">2. Select Material Quality</span>
+          <div class="variant-options" id="detail-material-options">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Quantity configuration & Add to Cart -->
+        <div style="display: flex; gap: 1.25rem; align-items: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+          <div style="display: flex; flex-direction: column;">
+            <span class="variant-label">Quantity</span>
+            <div class="quantity-picker" style="height: 48px;">
+              <button class="qty-btn" id="detail-qty-minus" style="width: 40px; height: 100%; font-size: 1.2rem;">-</button>
+              <div class="qty-val" id="detail-qty-val" style="width: 48px; font-size: 1.15rem;">1</div>
+              <button class="qty-btn" id="detail-qty-plus" style="width: 40px; height: 100%; font-size: 1.2rem;">+</button>
+            </div>
+          </div>
+          
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 70px;">
+            <button class="btn btn-primary" id="detail-add-to-cart-btn" style="height: 48px; width: 100%;">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Bulk Discounts Scale Table -->
+        <div style="margin-top: 2rem;">
+          <span class="variant-label">Bulk Purchase Discount Matrix</span>
+          <table class="bulk-price-table">
+            <thead>
+              <tr>
+                <th>Quantity</th>
+                <th>1 - 4</th>
+                <th>5 - 9</th>
+                <th>10 - 24</th>
+                <th>25+</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Discount</td>
+                <td>Base Price</td>
+                <td style="color: var(--primary-color); font-weight: 700;">10% Off</td>
+                <td style="color: var(--primary-color); font-weight: 700;">15% Off</td>
+                <td style="color: var(--accent-color); font-weight: 800;">25% Off</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Technical Specs Tabs Section -->
+    <div class="detail-specs-box">
+      <div class="specs-tab-header">
+        <button class="specs-tab-btn active" data-tab="desc">Product Description</button>
+        <button class="specs-tab-btn" data-tab="spec">Technical Specifications</button>
+        <button class="specs-tab-btn" data-tab="ship">Shipping & Returns</button>
+      </div>
+      <div class="specs-content-body" id="detail-tab-content">
+        <!-- Renders description by default -->
+        <div id="tab-desc-panel">
+          <p id="detail-long-desc"></p>
+          <ul id="detail-features-list" style="list-style: disc; margin: 1rem 0 0 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <!-- Loaded dynamically -->
+          </ul>
+        </div>
+        <div id="tab-spec-panel" style="display: none;">
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0; font-weight: 700; width: 30%;">Product Code</td><td id="spec-sku"></td></tr>
+            <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0; font-weight: 700;">Compliance Rating</td><td id="spec-compliance"></td></tr>
+            <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0; font-weight: 700;">Paper weight (Gloss)</td><td>220 GSM Photo Gloss Paper</td></tr>
+            <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0; font-weight: 700;">Lamination grade</td><td>125 Micron double-sided heat sealed gloss film</td></tr>
+            <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0; font-weight: 700;">Vinyl properties</td><td>Waterproof, scratch-resistant adhesive monomeric vinyl</td></tr>
+            <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0; font-weight: 700;">Board thickness</td><td>3mm rigid rustproof ACP (Aluminum Composite Panel)</td></tr>
+          </table>
+        </div>
+        <div id="tab-ship-panel" style="display: none;">
+          <p style="margin-bottom: 1rem;"><strong>Express Shipping:</strong> Orders are dispatched from Mumbai headquarters within 24-48 business hours. Delivered in heavy-duty cardboard tubes (for posters) or wooden frames (for ACP boards) to guarantee zero damage.</p>
+          <p><strong>Returns Guarantee:</strong> SafeVista offers a 7-day transit damage replacement guarantee. Simply submit photo evidence of shipping box damage to sales@safevista.com for instantaneous reprints.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products Grid -->
+    <section class="home-section" style="padding-bottom: 3.5rem;">
+      <div class="section-title-wrap" style="margin-bottom: 2rem;">
+        <h2 class="section-title" style="font-size: 1.75rem; text-align: left;">Related Posters</h2>
+      </div>
+      <div class="grid-cols-4" id="related-posters-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Reusable Site Footer Component -->
+  <site-footer></site-footer>
+
+  <!-- Side elements -->
+  <cart-drawer></cart-drawer>
+  <quick-view-modal></quick-view-modal>
+
+  <!-- Script Modules -->
+  <script type="module" src="js/components/Header.js"></script>
+  <script type="module" src="js/components/Footer.js"></script>
+  <script type="module" src="js/components/ProductCard.js"></script>
+  <script type="module" src="js/components/CartDrawer.js"></script>
+  <script type="module" src="js/components/QuickViewModal.js"></script>
+  <script type="module" src="js/detail.js"></script>
+</body>
+</html>
